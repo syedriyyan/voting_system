@@ -1,0 +1,1 @@
+SecureVote: A Privacy-Preserving, Verifiable Blockchain Voting System.
