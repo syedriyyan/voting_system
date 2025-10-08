@@ -29,8 +29,16 @@ jobs:
     - name: Build
       run: pnpm build
 
-    - name: Test
-      run: pnpm test
+    - name: Test API
+      run: pnpm --filter api test --run
 
-    - name: Lint
-      run: pnpm lint
+    - name: Test Contracts
+      run: pnpm --filter contracts test
+
+    # Web tests disabled - no test script available
+    # - name: Test Web
+    #   run: pnpm --filter web test
+
+    # Lint step disabled - no lint script available
+    # - name: Lint
+    #   run: pnpm lint
