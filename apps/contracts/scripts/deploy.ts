@@ -7,14 +7,17 @@ async function main() {
   // Deploy VoterRegistry
   const VoterRegistry = await ethers.getContractFactory("VoterRegistry");
   const voterRegistry = await VoterRegistry.deploy();
-  await voterRegistry.deployed();
-  console.log("VoterRegistry deployed to:", voterRegistry.address);
+  await voterRegistry.waitForDeployment();
+  console.log("VoterRegistry deployed to:", await voterRegistry.getAddress());
 
   // Deploy ElectionFactory
   const ElectionFactory = await ethers.getContractFactory("ElectionFactory");
   const electionFactory = await ElectionFactory.deploy();
-  await electionFactory.deployed();
-  console.log("ElectionFactory deployed to:", electionFactory.address);
+  await electionFactory.waitForDeployment();
+  console.log(
+    "ElectionFactory deployed to:",
+    await electionFactory.getAddress()
+  );
 }
 
 main()

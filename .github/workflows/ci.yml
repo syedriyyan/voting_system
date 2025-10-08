@@ -13,29 +13,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
 
-    - name: Install pnpm
-      uses: pnpm/action-setup@v2
-      with:
-        version: 8
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
 
-    - name: Install dependencies
-      run: pnpm install
+      - name: Install dependencies
+        run: pnpm install
 
-    - name: Build
-      run: pnpm build
+      - name: Build
+        run: pnpm build
 
-    - name: Test API
-      run: pnpm --filter api test --run
+      - name: Test API
+        run: pnpm --filter api test --run
 
-    - name: Test Contracts
-      run: pnpm --filter contracts test
+      - name: Test Contracts
+        run: pnpm --filter contracts test
 
     # Web tests disabled - no test script available
     # - name: Test Web

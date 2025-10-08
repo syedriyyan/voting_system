@@ -27,3 +27,17 @@
 {"level":"info","message":"::1 - - [08/Oct/2025:15:01:37 +0000] \"GET /health HTTP/1.1\" 200 76 \"-\" \"curl/8.7.1\"","service":"securevote-api","timestamp":"2025-10-08 20:31:37"}
 {"level":"info","message":"✅ MongoDB connected successfully","service":"securevote-api","timestamp":"2025-10-08 21:14:41"}
 {"level":"info","message":"✅ MongoDB connected successfully","service":"securevote-api","timestamp":"2025-10-08 21:16:13"}
+{"level":"info","message":"✅ MongoDB connected successfully","service":"securevote-api","timestamp":"2025-10-08 21:58:58"}
+{"level":"info","message":"✅ MongoDB connected successfully","service":"securevote-api","timestamp":"2025-10-08 22:00:13"}
+{"level":"info","message":"✅ MongoDB connected successfully","service":"securevote-api","timestamp":"2025-10-08 22:01:11"}
+{"level":"info","message":"🚀 Server running on port 5001","service":"securevote-api","timestamp":"2025-10-08 22:01:11"}
+{"level":"info","message":"📊 Environment: development","service":"securevote-api","timestamp":"2025-10-08 22:01:11"}
+{"level":"info","message":"🔗 API: http://localhost:5001","service":"securevote-api","timestamp":"2025-10-08 22:01:11"}
+{"level":"info","message":"✅ MongoDB connected successfully","service":"securevote-api","timestamp":"2025-10-08 22:01:43"}
+{"level":"info","message":"🚀 Server running on port 5001","service":"securevote-api","timestamp":"2025-10-08 22:01:43"}
+{"level":"info","message":"📊 Environment: development","service":"securevote-api","timestamp":"2025-10-08 22:01:43"}
+{"level":"info","message":"🔗 API: http://localhost:5001","service":"securevote-api","timestamp":"2025-10-08 22:01:43"}
+{"level":"info","message":"✅ MongoDB connected successfully","service":"securevote-api","timestamp":"2025-10-08 22:02:23"}
+{"level":"info","message":"🚀 Server running on port 5001","service":"securevote-api","timestamp":"2025-10-08 22:02:23"}
+{"level":"info","message":"📊 Environment: development","service":"securevote-api","timestamp":"2025-10-08 22:02:23"}
+{"level":"info","message":"🔗 API: http://localhost:5001","service":"securevote-api","timestamp":"2025-10-08 22:02:23"}
