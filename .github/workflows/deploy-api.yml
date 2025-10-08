@@ -1,11 +1,13 @@
 name: Deploy API
 
 on:
-  push:
-    branches: [ main ]
-    paths:
-      - 'apps/api/**'
-      - 'packages/**'
+  # Disabled automatic deployment
+  # push:
+  #   branches: [ main ]
+  #   paths:
+  #     - 'apps/api/**'
+  #     - 'packages/**'
+  workflow_dispatch: # Only allow manual trigger
 
 jobs:
   deploy:

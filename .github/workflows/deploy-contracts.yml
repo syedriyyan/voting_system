@@ -1,10 +1,12 @@
 name: Deploy Contracts
 
 on:
-  push:
-    branches: [ main ]
-    paths:
-      - 'apps/contracts/**'
+  # Disabled automatic deployment
+  # push:
+  #   branches: [ main ]
+  #   paths:
+  #     - 'apps/contracts/**'
+  workflow_dispatch: # Only allow manual trigger
 
 jobs:
   deploy:

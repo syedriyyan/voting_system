@@ -1,11 +1,13 @@
 name: Deploy Web
 
 on:
-  push:
-    branches: [ main ]
-    paths:
-      - 'apps/web/**'
-      - 'packages/**'
+  # Disabled automatic deployment
+  # push:
+  #   branches: [ main ]
+  #   paths:
+  #     - 'apps/web/**'
+  #     - 'packages/**'
+  workflow_dispatch: # Only allow manual trigger
 
 jobs:
   deploy:
