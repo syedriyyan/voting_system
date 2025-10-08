@@ -1,10 +1,12 @@
 name: CI
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  # Disabled CI workflow - no automatic builds or tests
+  # push:
+  #   branches: [ main ]
+  # pull_request:
+  #   branches: [ main ]
+  workflow_dispatch: # Only allow manual trigger
 
 jobs:
   build:
