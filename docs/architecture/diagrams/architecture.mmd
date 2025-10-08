@@ -1,0 +1,32 @@
+flowchart TB
+    subgraph Frontend
+        Web[Web App]
+        Wallet[Web3 Wallet]
+    end
+
+    subgraph Backend
+        API[API Server]
+        DB[(Database)]
+        Cache[(Redis Cache)]
+    end
+
+    subgraph Blockchain
+        SC[Smart Contracts]
+        subgraph Contracts
+            VS[VotingSystem]
+            VR[VoterRegistry]
+            EF[ElectionFactory]
+        end
+    end
+
+    subgraph Storage
+        IPFS[IPFS Node]
+    end
+
+    Web <--> API
+    Web <--> Wallet
+    Wallet <--> SC
+    API <--> DB
+    API <--> Cache
+    API <--> SC
+    API <--> IPFS

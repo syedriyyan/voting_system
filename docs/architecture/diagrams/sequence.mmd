@@ -1,0 +1,19 @@
+sequenceDiagram
+    participant User
+    participant Web
+    participant API
+    participant Contract
+    participant IPFS
+
+    User->>Web: Connect Wallet
+    Web->>API: Verify Eligibility
+    API->>Contract: Check Voter Registry
+
+    User->>Web: Cast Vote
+    Web->>Web: Encrypt Vote
+    Web->>API: Submit Vote
+    API->>IPFS: Store Encrypted Vote
+    API->>Contract: Record Vote Hash
+    Contract-->>API: Vote Recorded
+    API-->>Web: Success Response
+    Web-->>User: Vote Receipt

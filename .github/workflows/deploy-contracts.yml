@@ -1,0 +1,42 @@
+name: Deploy Contracts
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'apps/contracts/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: 8
+
+    - name: Install dependencies
+      run: |
+        cd apps/contracts
+        pnpm install
+
+    - name: Compile contracts
+      run: |
+        cd apps/contracts
+        pnpm compile
+
+    - name: Deploy contracts
+      env:
+        PRIVATE_KEY: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+        ETHERSCAN_API_KEY: ${{ secrets.ETHERSCAN_API_KEY }}
+      run: |
+        cd apps/contracts
+        pnpm deploy

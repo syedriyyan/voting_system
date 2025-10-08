@@ -1,0 +1,37 @@
+flowchart TD
+    subgraph Assets
+        Vote[Vote Data]
+        Key[Private Keys]
+        Cred[User Credentials]
+    end
+
+    subgraph Threats
+        MitM[Man in the Middle]
+        Replay[Replay Attack]
+        DOS[Denial of Service]
+        Spoofing[Identity Spoofing]
+        Double[Double Voting]
+    end
+
+    subgraph Controls
+        TLS[TLS Encryption]
+        JWT[JWT Auth]
+        ZKP[Zero Knowledge Proofs]
+        Rate[Rate Limiting]
+        Sign[Digital Signatures]
+    end
+
+    MitM --> Vote
+    MitM -.-> TLS
+    
+    Replay --> Vote
+    Replay -.-> JWT
+    
+    DOS --> Vote
+    DOS -.-> Rate
+    
+    Spoofing --> Cred
+    Spoofing -.-> ZKP
+    
+    Double --> Vote
+    Double -.-> Sign

@@ -1,0 +1,29 @@
+{"level":"info","message":"✅ MongoDB connected successfully","service":"securevote-api","timestamp":"2025-10-08 19:47:53"}
+{"level":"info","message":"✅ MongoDB connected successfully","service":"securevote-api","timestamp":"2025-10-08 20:01:16"}
+{"level":"info","message":"✅ MongoDB connected successfully","service":"securevote-api","timestamp":"2025-10-08 20:11:32"}
+{"level":"info","message":"✅ MongoDB connected successfully","service":"securevote-api","timestamp":"2025-10-08 20:13:44"}
+{"level":"info","message":"🚀 Server running on port 5001","service":"securevote-api","timestamp":"2025-10-08 20:13:44"}
+{"level":"info","message":"📊 Environment: undefined","service":"securevote-api","timestamp":"2025-10-08 20:13:44"}
+{"level":"info","message":"🔗 API: http://localhost:5001","service":"securevote-api","timestamp":"2025-10-08 20:13:44"}
+{"level":"info","message":"::1 - - [08/Oct/2025:14:44:24 +0000] \"GET / HTTP/1.1\" 404 45 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36\"","service":"securevote-api","timestamp":"2025-10-08 20:14:24"}
+{"level":"info","message":"::1 - - [08/Oct/2025:14:44:24 +0000] \"GET /favicon.ico HTTP/1.1\" 404 45 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36\"","service":"securevote-api","timestamp":"2025-10-08 20:14:24"}
+{"level":"info","message":"✅ MongoDB connected successfully","service":"securevote-api","timestamp":"2025-10-08 20:24:10"}
+{"level":"info","message":"✅ MongoDB connected successfully","service":"securevote-api","timestamp":"2025-10-08 20:25:52"}
+{"level":"info","message":"✅ MongoDB connected successfully","service":"securevote-api","timestamp":"2025-10-08 20:26:20"}
+{"level":"info","message":"✅ MongoDB connected successfully","service":"securevote-api","timestamp":"2025-10-08 20:26:42"}
+{"level":"info","message":"✅ MongoDB connected successfully","service":"securevote-api","timestamp":"2025-10-08 20:27:15"}
+{"level":"info","message":"🚀 Server running on port 5001","service":"securevote-api","timestamp":"2025-10-08 20:27:15"}
+{"level":"info","message":"📊 Environment: undefined","service":"securevote-api","timestamp":"2025-10-08 20:27:15"}
+{"level":"info","message":"🔗 API: http://localhost:5001","service":"securevote-api","timestamp":"2025-10-08 20:27:15"}
+{"level":"info","message":"::1 - - [08/Oct/2025:14:57:29 +0000] \"GET / HTTP/1.1\" 404 45 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36\"","service":"securevote-api","timestamp":"2025-10-08 20:27:29"}
+{"level":"info","message":"::1 - - [08/Oct/2025:14:57:30 +0000] \"GET / HTTP/1.1\" 404 45 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36\"","service":"securevote-api","timestamp":"2025-10-08 20:27:30"}
+{"level":"info","message":"✅ MongoDB connected successfully","service":"securevote-api","timestamp":"2025-10-08 20:29:10"}
+{"level":"info","message":"✅ MongoDB connected successfully","service":"securevote-api","timestamp":"2025-10-08 20:29:56"}
+{"level":"info","message":"✅ MongoDB connected successfully","service":"securevote-api","timestamp":"2025-10-08 20:30:39"}
+{"level":"info","message":"✅ MongoDB connected successfully","service":"securevote-api","timestamp":"2025-10-08 20:31:12"}
+{"level":"info","message":"🚀 Server running on port 5001","service":"securevote-api","timestamp":"2025-10-08 20:31:12"}
+{"level":"info","message":"📊 Environment: undefined","service":"securevote-api","timestamp":"2025-10-08 20:31:12"}
+{"level":"info","message":"🔗 API: http://localhost:5001","service":"securevote-api","timestamp":"2025-10-08 20:31:12"}
+{"level":"info","message":"::1 - - [08/Oct/2025:15:01:37 +0000] \"GET /health HTTP/1.1\" 200 76 \"-\" \"curl/8.7.1\"","service":"securevote-api","timestamp":"2025-10-08 20:31:37"}
+{"level":"info","message":"✅ MongoDB connected successfully","service":"securevote-api","timestamp":"2025-10-08 21:14:41"}
+{"level":"info","message":"✅ MongoDB connected successfully","service":"securevote-api","timestamp":"2025-10-08 21:16:13"}
