@@ -3,8 +3,7 @@
 import { WagmiProvider } from "wagmi";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
-// local fallback config to avoid missing-module compile errors; replace with your actual wagmi setup or create ./wagmi.ts
-const config: any = {};
+import { config } from "./wagmi";
 import "@rainbow-me/rainbowkit/styles.css";
 
 const queryClient = new QueryClient();
