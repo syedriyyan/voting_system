@@ -1,76 +1,253 @@
 import { Request, Response } from "express";
 import Vote from "../models/Vote.model";
-import { BlockchainService } from "../services/blockchain.service";
-import CryptoService from "../services/crypto.service";
+import Election, { ElectionStatus } from "../models/Election.model";
+import User from "../models/User.model";
+import cryptoService from "../services/crypto.service";
+import { logger } from "../utils/logger";
 
-export class VoteController {
-  static async cast(req: Request, res: Response) {
-    try {
-      const { electionId, choice } = req.body;
-      const userId = req.user?.userId; // From auth middleware
+/**
+ * Cast a vote
+ */
+export const castVote = async (req: Request, res: Response) => {
+  try {
+    const userId = (req as any).user.userId;
+    const walletAddress = (req as any).user.walletAddress;
 
-      if (!userId) {
-        return res.status(401).json({ message: "User not authenticated" });
-      }
+    const {
+      electionId,
+      contractElectionId,
+      candidateId,
+      transactionHash,
+      signature,
+    } = req.body;
 
-      // Check if user has already voted
-      const existingVote = await Vote.findOne({ electionId, voterId: userId });
-      if (existingVote) {
-        return res
-          .status(400)
-          .json({ message: "Already voted in this election" });
-      }
-
-      // Encrypt the vote
-      const encryptedVote = await CryptoService.encryptVote(choice);
-
-      // Submit vote to blockchain
-      const txHash = await BlockchainService.submitVote(
-        electionId,
-        JSON.stringify(encryptedVote)
-      );
-
-      // Save vote record
-      const vote = new Vote({
-        electionId,
-        voterId: userId,
-        encryptedVote,
-        transactionHash: txHash,
-        timestamp: new Date(),
+    // Validate required fields
+    if (
+      !electionId ||
+      candidateId === undefined ||
+      !transactionHash ||
+      !signature
+    ) {
+      return res.status(400).json({
+        success: false,
+        message: "Missing required fields",
       });
-
-      await vote.save();
-
-      res.status(201).json({
-        message: "Vote cast successfully",
-        transactionHash: txHash,
-      });
-    } catch (error) {
-      res.status(500).json({ message: "Error casting vote", error });
     }
-  }
 
-  static async getVoteReceipt(req: Request, res: Response) {
-    try {
-      const { electionId } = req.params;
-      const userId = req.user?.userId;
+    // Check if user is verified
+    const user = await User.findById(userId);
+    if (!user || !user.isVerified) {
+      return res.status(403).json({
+        success: false,
+        message: "User not verified",
+      });
+    }
 
-      if (!userId) {
-        return res.status(401).json({ message: "User not authenticated" });
-      }
+    // Get election
+    const election = await Election.findById(electionId);
+    if (!election) {
+      return res.status(404).json({
+        success: false,
+        message: "Election not found",
+      });
+    }
 
-      const vote = await Vote.findOne({ electionId, voterId: userId });
-      if (!vote) {
-        return res.status(404).json({ message: "Vote not found" });
-      }
+    // Check election status
+    const now = new Date();
+    if (
+      election.status !== ElectionStatus.ACTIVE ||
+      now < election.startTime ||
+      now > election.endTime
+    ) {
+      return res.status(400).json({
+        success: false,
+        message: "Election is not active",
+      });
+    }
 
-      res.json({
-        electionId: vote.electionId,
+    // Check if already voted
+    const existingVote = await Vote.findOne({ electionId, voter: userId });
+    if (existingVote) {
+      return res.status(400).json({
+        success: false,
+        message: "You have already voted in this election",
+      });
+    }
+
+    // Validate candidate
+    if (candidateId >= election.candidates.length) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid candidate ID",
+      });
+    }
+
+    // Encrypt vote data
+    const voteData = {
+      electionId: contractElectionId,
+      candidateId,
+      timestamp: Date.now(),
+      voter: walletAddress,
+    };
+
+    const { encryptedVote, encryptedKey, iv, tag } =
+      cryptoService.encryptVote(voteData);
+
+    // Generate vote hash
+    const voteHash = cryptoService.generateVoteHash(
+      contractElectionId,
+      walletAddress,
+      candidateId,
+      Date.now()
+    );
+
+    // Create vote record
+    const vote = new Vote({
+      electionId,
+      contractElectionId,
+      voter: userId,
+      voterAddress: walletAddress.toLowerCase(),
+      candidateId,
+      encryptedVote: JSON.stringify({ encryptedVote, encryptedKey, iv, tag }),
+      voteHash,
+      transactionHash,
+      signature,
+      timestamp: new Date(),
+      verified: true,
+    });
+
+    await vote.save();
+
+    // Update election vote count
+    election.totalVotes += 1;
+    await election.save();
+
+    logger.info(`Vote cast: Election ${electionId}, Voter ${userId}`);
+
+    res.status(201).json({
+      success: true,
+      message: "Vote cast successfully",
+      data: {
+        voteHash,
+        transactionHash,
         timestamp: vote.timestamp,
-        transactionHash: vote.transactionHash,
-      });
-    } catch (error) {
-      res.status(500).json({ message: "Error fetching vote receipt", error });
-    }
+      },
+    });
+  } catch (error: any) {
+    logger.error("Cast vote error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to cast vote",
+      error: error.message,
+    });
   }
-}
+};
+
+/**
+ * Verify a vote
+ */
+export const verifyVote = async (req: Request, res: Response) => {
+  try {
+    const { voteHash } = req.params;
+
+    const vote = await Vote.findOne({ voteHash })
+      .populate("electionId", "title")
+      .select("-encryptedVote");
+
+    if (!vote) {
+      return res.status(404).json({
+        success: false,
+        message: "Vote not found",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      data: {
+        voteHash: vote.voteHash,
+        transactionHash: vote.transactionHash,
+        timestamp: vote.timestamp,
+        verified: vote.verified,
+        election: vote.electionId,
+      },
+    });
+  } catch (error: any) {
+    logger.error("Verify vote error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to verify vote",
+      error: error.message,
+    });
+  }
+};
+
+/**
+ * Get vote receipt
+ */
+export const getVoteReceipt = async (req: Request, res: Response) => {
+  try {
+    const { voteId } = req.params;
+    const userId = (req as any).user.userId;
+
+    const vote = await Vote.findById(voteId).populate("electionId", "title");
+
+    if (!vote) {
+      return res.status(404).json({
+        success: false,
+        message: "Vote not found",
+      });
+    }
+
+    // Only the voter can see their receipt
+    if (vote.voter.toString() !== userId) {
+      return res.status(403).json({
+        success: false,
+        message: "Unauthorized",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      data: {
+        voteHash: vote.voteHash,
+        transactionHash: vote.transactionHash,
+        timestamp: vote.timestamp,
+        election: vote.electionId,
+        verified: vote.verified,
+      },
+    });
+  } catch (error: any) {
+    logger.error("Get receipt error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to get receipt",
+      error: error.message,
+    });
+  }
+};
+
+/**
+ * Get voter's voting history
+ */
+export const getVotingHistory = async (req: Request, res: Response) => {
+  try {
+    const userId = (req as any).user.userId;
+
+    const votes = await Vote.find({ voter: userId })
+      .populate("electionId", "title status")
+      .sort({ timestamp: -1 })
+      .select("-encryptedVote");
+
+    res.status(200).json({
+      success: true,
+      data: { votes },
+    });
+  } catch (error: any) {
+    logger.error("Get history error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to get voting history",
+      error: error.message,
+    });
+  }
+};
