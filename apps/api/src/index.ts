@@ -3,6 +3,7 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 import dotenv from "dotenv";
+import path from "path";
 import { connectDatabase } from "./config/database";
 import { logger } from "./utils/logger";
 
@@ -11,6 +12,8 @@ import authRoutes from "./routes/auth.routes";
 import electionRoutes from "./routes/elections.routes";
 import voteRoutes from "./routes/votes.routes";
 import userRoutes from "./routes/user.routes";
+import candidateRoutes from "./routes/candidates.routes";
+import resultRoutes from "./routes/results.routes";
 
 // Load environment variables
 dotenv.config();
@@ -43,11 +46,16 @@ app.get("/health", (req: Request, res: Response) => {
   });
 });
 
+// Serve uploaded files
+app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
+
 // API Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/elections", electionRoutes);
 app.use("/api/votes", voteRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/candidates", candidateRoutes);
+app.use("/api/results", resultRoutes);
 
 // 404 Handler
 app.use((req: Request, res: Response) => {

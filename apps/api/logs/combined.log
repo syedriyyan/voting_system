@@ -69,3 +69,58 @@
 {"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-09 17:08:16"}
 {"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-09 17:26:45"}
 {"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-09 17:43:09"}
+{"level":"info","message":"✅ MongoDB connected successfully","service":"securevote-api","timestamp":"2025-10-09 20:05:49"}
+{"level":"info","message":"🚀 Server running on port 5001","service":"securevote-api","timestamp":"2025-10-09 20:05:49"}
+{"level":"info","message":"📊 Environment: development","service":"securevote-api","timestamp":"2025-10-09 20:05:49"}
+{"level":"info","message":"🔗 API: http://localhost:5001","service":"securevote-api","timestamp":"2025-10-09 20:05:49"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-09 20:24:36"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-09 20:36:58"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-09 20:53:35"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-09 21:31:41"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-09 21:49:22"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-09 22:00:32"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-09 22:20:18"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-09 22:52:03"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-09 23:14:57"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 00:03:05"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 00:53:49"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 01:14:52"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 02:04:55"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 02:39:21"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 03:11:16"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 03:45:36"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 04:18:37"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 04:50:04"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 05:08:46"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 05:42:59"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 06:14:45"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 06:48:42"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 07:09:17"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 07:41:05"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 07:53:34"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 08:24:45"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 08:54:34"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 09:22:48"}
+{"level":"info","message":"✅ MongoDB connected successfully","service":"securevote-api","timestamp":"2025-10-10 09:47:36"}
+{"level":"info","message":"🚀 Server running on port 5001","service":"securevote-api","timestamp":"2025-10-10 09:47:36"}
+{"level":"info","message":"📊 Environment: development","service":"securevote-api","timestamp":"2025-10-10 09:47:36"}
+{"level":"info","message":"🔗 API: http://localhost:5001","service":"securevote-api","timestamp":"2025-10-10 09:47:36"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 10:42:13"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 11:32:01"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 12:04:52"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 12:20:31"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 12:43:43"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 13:24:51"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 13:44:52"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 14:05:20"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 14:45:05"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 15:16:36"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 15:49:32"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 16:00:55"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 16:17:02"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 16:48:00"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 17:14:13"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 17:47:29"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 17:52:14"}
+{"level":"warn","message":"MongoDB disconnected. Attempting to reconnect...","service":"securevote-api","timestamp":"2025-10-10 18:31:12"}
+{"level":"info","message":"✅ MongoDB connected successfully","service":"securevote-api","timestamp":"2025-10-10 18:48:50"}
